@@ -52,7 +52,7 @@ open class ScalingCarouselLayout: UICollectionViewFlowLayout {
             itemSize.width = itemSize.width - (inset * 2)
             sectionInset = UIEdgeInsets(top: 0.0, left: inset, bottom: 0.0, right: inset)
         }
-        collectionView?.isPagingEnabled = true
+        collectionView?.isPagingEnabled = false
         
         minimumLineSpacing = 0.0
         minimumInteritemSpacing = 0.0

@@ -33,7 +33,7 @@ open class ScalingCarouselCell: UICollectionViewCell {
     open var alphaMinimum: CGFloat = 0.85
     
     /// The corner radius value of the cell's main view
-    open var cornerRadius: CGFloat = 20.0
+    open var cornerRadius: CGFloat = 10.0
     
     // MARK: - IBOutlets
     
