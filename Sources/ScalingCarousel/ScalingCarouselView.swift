@@ -193,10 +193,9 @@ fileprivate extension PrivateAPI {
         /// Add our 'invisible' scrollview
         invisibleScrollView = UIScrollView(frame: bounds)
         invisibleScrollView.translatesAutoresizingMaskIntoConstraints = false
-        invisibleScrollView.isPagingEnabled = true
+        invisibleScrollView.isPagingEnabled = false
         invisibleScrollView.showsHorizontalScrollIndicator = false
         invisibleScrollView.showsVerticalScrollIndicator = false
-        
         /*
          Disable user interaction on the 'invisible' scrollview,
          This means touch events will fall through to the underlying UICollectionView
@@ -270,7 +269,7 @@ fileprivate extension PrivateAPI {
         
         
         // To avoid carousel moving when cell is tapped
-        isPagingEnabled = true
+        isPagingEnabled = false
         isScrollEnabled = false
     }
 }
@@ -295,6 +294,10 @@ extension InvisibleScrollDelegate: UIScrollViewDelegate {
                 infoCardCell.scale(withCarouselInset: inset)
             }
         }
+    }
+    
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        delegate?.scrollViewDidEndDragging?(scrollView, willDecelerate: decelerate)
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
